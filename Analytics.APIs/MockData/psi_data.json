@@ -1,0 +1,62 @@
+[
+  {
+    "date": "2025-10-20",
+    "page": "/home",
+    "performanceScore": 0.90,
+    "LCP_ms": 2100
+  },
+  {
+    "date": "2025-10-20",
+    "page": "/products",
+    "performanceScore": 0.85,
+    "LCP_ms": 2400
+  },
+  {
+    "date": "2025-10-20",
+    "page": "/about",
+    "performanceScore": 0.92,
+    "LCP_ms": 1950
+  },
+  {
+    "date": "2025-10-21",
+    "page": "/home",
+    "performanceScore": 0.88,
+    "LCP_ms": 2200
+  },
+  {
+    "date": "2025-10-21",
+    "page": "/products",
+    "performanceScore": 0.83,
+    "LCP_ms": 2550
+  },
+  {
+    "date": "2025-10-21",
+    "page": "/about",
+    "performanceScore": 0.91,
+    "LCP_ms": 2000
+  },
+  {
+    "date": "2025-10-22",
+    "page": "/home",
+    "performanceScore": 0.89,
+    "LCP_ms": 2150
+  },
+  {
+    "date": "2025-10-22",
+    "page": "/products",
+    "performanceScore": 0.84,
+    "LCP_ms": 2450
+  },
+  {
+    "date": "2025-10-22",
+    "page": "/about",
+    "performanceScore": 0.93,
+    "LCP_ms": 1900
+  },
+  {
+    "date": "2025-10-22",
+    "page": "/contact",
+    "performanceScore": 0.95,
+    "LCP_ms": 1750
+  }
+]

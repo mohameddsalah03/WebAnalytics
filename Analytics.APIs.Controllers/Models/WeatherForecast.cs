@@ -1,4 +1,4 @@
-namespace Analytics.APIs
+namespace Analytics.APIs.Controllers.Models
 {
     public class WeatherForecast
     {
