@@ -1,4 +1,6 @@
+using Analytics.APIs.Controllers.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace Analytics.APIs.Controllers
 {
