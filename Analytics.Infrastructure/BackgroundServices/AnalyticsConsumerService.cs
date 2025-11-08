@@ -30,7 +30,6 @@ public class AnalyticsConsumerService : BackgroundService
 
     protected override Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        // خلي الـ task مستمر
         return Task.Run(() =>
         {
             _messageBroker.StartConsuming(_settings.Queue, async (message) =>
@@ -38,7 +37,6 @@ public class AnalyticsConsumerService : BackgroundService
                 return await ProcessMessageWithRetryAsync(message, maxRetries: 3, stoppingToken);
             });
 
-            // استنى لحد ما الـ cancellation token يطلب إيقاف
             stoppingToken.WaitHandle.WaitOne();
         }, stoppingToken);
     }
@@ -46,7 +44,8 @@ public class AnalyticsConsumerService : BackgroundService
     private async Task<bool> ProcessMessageWithRetryAsync(
         string message,
         int maxRetries,
-        CancellationToken cancellationToken)
+        CancellationToken cancellationToken
+        )
     {
         int attempt = 0;
 
@@ -58,7 +57,7 @@ public class AnalyticsConsumerService : BackgroundService
                 await ProcessMessageAsync(message);
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception )
             {
 
                 if (attempt < maxRetries)
@@ -78,14 +77,13 @@ public class AnalyticsConsumerService : BackgroundService
         var unitOfWork = scope.ServiceProvider.GetRequiredService<IUnitOfWork>();
 
         var data = JsonSerializer.Deserialize<AnalyticsMessageDto>(message);
-        if (data is null)
+        if (data is null)  
         {
             throw new InvalidOperationException("Failed to deserialize message");
         }
 
         try
         {
-            // 1️ Save raw data (after checking duplicates)
             var rawData = new RawAnalyticsData
             {
                 Date = data.Date.Date,
@@ -121,9 +119,9 @@ public class AnalyticsConsumerService : BackgroundService
     }
 
     private async Task AggregateDailyStatsAsync(
-        
         IUnitOfWork unitOfWork,
-        DateTime date)
+        DateTime date
+        )
     {
 
         // Get all raw data for this date

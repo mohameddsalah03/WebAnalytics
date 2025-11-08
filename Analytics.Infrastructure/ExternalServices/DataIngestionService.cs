@@ -58,7 +58,7 @@ public class DataIngestionService : IDataIngestionService
             }
 
         }
-        catch (Exception ex)
+        catch (Exception )
         {
             throw;
         }
